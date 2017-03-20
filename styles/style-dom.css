@@ -1,0 +1,58 @@
+body {
+    margin：0;
+    padding：0;
+    text-align: center;
+}
+div#chess-board {
+    margin-top: 30px;
+    padding: 4px 4px 12px;
+    width: 565px;
+    background: url(../imgs/chessBoard.png) no-repeat 21px 21px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px #888;
+    display: inline-block;
+}
+
+div#chess-board div {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-top: 0px solid #ccc;
+    border-left: 0px solid #ccc;
+    border-right: 0;
+    border-bottom: 0;
+    cursor: pointer;
+}
+
+div#chess-board .chess-middle:hover {
+    background: url(../imgs/tipPosition.png) no-repeat 7px 7px;
+}
+
+#box {
+    margin-top: 40px;
+}
+
+span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #F60D0D;
+    display: block;
+    height: 50px;
+}
+
+input {
+    margin: 10px 5px;
+    // display: block;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #797C18;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    font-size: 30px;
+    margin-bottom: 20px;
+}

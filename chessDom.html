@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;">
+    <title>五子棋 DOM</title>
+    <link rel="stylesheet" href="styles/style-dom.css">
+</head>
+<body>
+    <div id="chess-board">
+        <!-- top line -->
+        <div class="chess-top chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top" data-x="-1" data-y="-1"></div>
+        <div class="chess-top chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 1 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="0" data-y="0"></div>
+        <div class="chess-middle" data-x="0" data-y="1"></div>
+        <div class="chess-middle" data-x="0" data-y="2"></div>
+        <div class="chess-middle" data-x="0" data-y="3"></div>
+        <div class="chess-middle" data-x="0" data-y="4"></div>
+        <div class="chess-middle" data-x="0" data-y="5"></div>
+        <div class="chess-middle" data-x="0" data-y="6"></div>
+        <div class="chess-middle" data-x="0" data-y="7"></div>
+        <div class="chess-middle" data-x="0" data-y="8"></div>
+        <div class="chess-middle" data-x="0" data-y="9"></div>
+        <div class="chess-middle" data-x="0" data-y="10"></div>
+        <div class="chess-middle" data-x="0" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 2 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="1" data-y="0"></div>
+        <div class="chess-middle" data-x="1" data-y="1"></div>
+        <div class="chess-middle" data-x="1" data-y="2"></div>
+        <div class="chess-middle" data-x="1" data-y="3"></div>
+        <div class="chess-middle" data-x="1" data-y="4"></div>
+        <div class="chess-middle" data-x="1" data-y="5"></div>
+        <div class="chess-middle" data-x="1" data-y="6"></div>
+        <div class="chess-middle" data-x="1" data-y="7"></div>
+        <div class="chess-middle" data-x="1" data-y="8"></div>
+        <div class="chess-middle" data-x="1" data-y="9"></div>
+        <div class="chess-middle" data-x="1" data-y="10"></div>
+        <div class="chess-middle" data-x="1" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 3 -->
+        <div class="chess-left"  data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="2" data-y="0"></div>
+        <div class="chess-middle" data-x="2" data-y="1"></div>
+        <div class="chess-middle" data-x="2" data-y="2"></div>
+        <div class="chess-middle" data-x="2" data-y="3"></div>
+        <div class="chess-middle" data-x="2" data-y="4"></div>
+        <div class="chess-middle" data-x="2" data-y="5"></div>
+        <div class="chess-middle" data-x="2" data-y="6"></div>
+        <div class="chess-middle" data-x="2" data-y="7"></div>
+        <div class="chess-middle" data-x="2" data-y="8"></div>
+        <div class="chess-middle" data-x="2" data-y="9"></div>
+        <div class="chess-middle" data-x="2" data-y="10"></div>
+        <div class="chess-middle" data-x="2" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 4 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="3" data-y="0"></div>
+        <div class="chess-middle" data-x="3" data-y="1"></div>
+        <div class="chess-middle" data-x="3" data-y="2"></div>
+        <div class="chess-middle" data-x="3" data-y="3"></div>
+        <div class="chess-middle" data-x="3" data-y="4"></div>
+        <div class="chess-middle" data-x="3" data-y="5"></div>
+        <div class="chess-middle" data-x="3" data-y="6"></div>
+        <div class="chess-middle" data-x="3" data-y="7"></div>
+        <div class="chess-middle" data-x="3" data-y="8"></div>
+        <div class="chess-middle" data-x="3" data-y="9"></div>
+        <div class="chess-middle" data-x="3" data-y="10"></div>
+        <div class="chess-middle" data-x="3" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 5 -->
+        <div class="chess-left"  data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="4" data-y="0"></div>
+        <div class="chess-middle" data-x="4" data-y="1"></div>
+        <div class="chess-middle" data-x="4" data-y="2"></div>
+        <div class="chess-middle" data-x="4" data-y="3"></div>
+        <div class="chess-middle" data-x="4" data-y="4"></div>
+        <div class="chess-middle" data-x="4" data-y="5"></div>
+        <div class="chess-middle" data-x="4" data-y="6"></div>
+        <div class="chess-middle" data-x="4" data-y="7"></div>
+        <div class="chess-middle" data-x="4" data-y="8"></div>
+        <div class="chess-middle" data-x="4" data-y="9"></div>
+        <div class="chess-middle" data-x="4" data-y="10"></div>
+        <div class="chess-middle" data-x="4" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 6 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="5" data-y="0"></div>
+        <div class="chess-middle" data-x="5" data-y="1"></div>
+        <div class="chess-middle" data-x="5" data-y="2"></div>
+        <div class="chess-middle" data-x="5" data-y="3"></div>
+        <div class="chess-middle" data-x="5" data-y="4"></div>
+        <div class="chess-middle" data-x="5" data-y="5"></div>
+        <div class="chess-middle" data-x="5" data-y="6"></div>
+        <div class="chess-middle" data-x="5" data-y="7"></div>
+        <div class="chess-middle" data-x="5" data-y="8"></div>
+        <div class="chess-middle" data-x="5" data-y="9"></div>
+        <div class="chess-middle" data-x="5" data-y="10"></div>
+        <div class="chess-middle" data-x="5" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 7 -->
+        <div class="chess-left"  data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="6" data-y="0"></div>
+        <div class="chess-middle" data-x="6" data-y="1"></div>
+        <div class="chess-middle" data-x="6" data-y="2"></div>
+        <div class="chess-middle" data-x="6" data-y="3"></div>
+        <div class="chess-middle" data-x="6" data-y="4"></div>
+        <div class="chess-middle" data-x="6" data-y="5"></div>
+        <div class="chess-middle" data-x="6" data-y="6"></div>
+        <div class="chess-middle" data-x="6" data-y="7"></div>
+        <div class="chess-middle" data-x="6" data-y="8"></div>
+        <div class="chess-middle" data-x="6" data-y="9"></div>
+        <div class="chess-middle" data-x="6" data-y="10"></div>
+        <div class="chess-middle" data-x="6" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 8 -->
+        <div class="chess-left"  data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="7" data-y="0"></div>
+        <div class="chess-middle" data-x="7" data-y="1"></div>
+        <div class="chess-middle" data-x="7" data-y="2"></div>
+        <div class="chess-middle" data-x="7" data-y="3"></div>
+        <div class="chess-middle" data-x="7" data-y="4"></div>
+        <div class="chess-middle" data-x="7" data-y="5"></div>
+        <div class="chess-middle" data-x="7" data-y="6"></div>
+        <div class="chess-middle" data-x="7" data-y="7"></div>
+        <div class="chess-middle" data-x="7" data-y="8"></div>
+        <div class="chess-middle" data-x="7" data-y="9"></div>
+        <div class="chess-middle" data-x="7" data-y="10"></div>
+        <div class="chess-middle" data-x="7" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 9 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="8" data-y="0"></div>
+        <div class="chess-middle" data-x="8" data-y="1"></div>
+        <div class="chess-middle" data-x="8" data-y="2"></div>
+        <div class="chess-middle" data-x="8" data-y="3"></div>
+        <div class="chess-middle" data-x="8" data-y="4"></div>
+        <div class="chess-middle" data-x="8" data-y="5"></div>
+        <div class="chess-middle" data-x="8" data-y="6"></div>
+        <div class="chess-middle" data-x="8" data-y="7"></div>
+        <div class="chess-middle" data-x="8" data-y="8"></div>
+        <div class="chess-middle" data-x="8" data-y="9"></div>
+        <div class="chess-middle" data-x="8" data-y="10"></div>
+        <div class="chess-middle" data-x="8" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 10 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="9" data-y="0"></div>
+        <div class="chess-middle" data-x="9" data-y="1"></div>
+        <div class="chess-middle" data-x="9" data-y="2"></div>
+        <div class="chess-middle" data-x="9" data-y="3"></div>
+        <div class="chess-middle" data-x="9" data-y="4"></div>
+        <div class="chess-middle" data-x="9" data-y="5"></div>
+        <div class="chess-middle" data-x="9" data-y="6"></div>
+        <div class="chess-middle" data-x="9" data-y="7"></div>
+        <div class="chess-middle" data-x="9" data-y="8"></div>
+        <div class="chess-middle" data-x="9" data-y="9"></div>
+        <div class="chess-middle" data-x="9" data-y="10"></div>
+        <div class="chess-middle" data-x="9" data-y="11"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- line 11 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="10" data-y="1"></div>
+        <div class="chess-middle" data-x="10" data-y="2"></div>
+        <div class="chess-middle" data-x="10" data-y="3"></div>
+        <div class="chess-middle" data-x="10" data-y="4"></div>
+        <div class="chess-middle" data-x="10" data-y="5"></div>
+        <div class="chess-middle" data-x="10" data-y="6"></div>
+        <div class="chess-middle" data-x="10" data-y="7"></div>
+        <div class="chess-middle" data-x="10" data-y="8"></div>
+        <div class="chess-middle" data-x="10" data-y="9"></div>
+        <div class="chess-middle" data-x="10" data-y="10"></div>
+        <div class="chess-middle" data-x="10" data-y="11"></div>
+        <div class="chess-middle" data-x="10" data-y="0"></div>
+        <div class="chess-right"  data-x="-1" data-y="-1"></div>
+        <!-- line 12 -->
+        <div class="chess-left" data-x="-1" data-y="-1"></div>
+        <div class="chess-middle" data-x="11" data-y="1"></div>
+        <div class="chess-middle" data-x="11" data-y="2"></div>
+        <div class="chess-middle" data-x="11" data-y="3"></div>
+        <div class="chess-middle" data-x="11" data-y="4"></div>
+        <div class="chess-middle" data-x="11" data-y="5"></div>
+        <div class="chess-middle" data-x="11" data-y="6"></div>
+        <div class="chess-middle" data-x="11" data-y="7"></div>
+        <div class="chess-middle" data-x="11" data-y="8"></div>
+        <div class="chess-middle" data-x="11" data-y="9"></div>
+        <div class="chess-middle" data-x="11" data-y="10"></div>
+        <div class="chess-middle" data-x="11" data-y="11"></div>
+        <div class="chess-middle" data-x="11" data-y="0"></div>
+        <div class="chess-right" data-x="-1" data-y="-1"></div>
+        <!-- bottom line -->
+        <div class="chess-bottom chess-left"  data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom" data-x="-1" data-y="-1"></div>
+        <div class="chess-bottom chess-right" data-x="-1" data-y="-1"></div>
+    </div>
+    <div id="box">
+        <a href="index.html" id="go-to"></a>
+        <span id="result_tips"></span>
+        <input type="button" id="btn-start" value="重新开始" />
+        <input type="button" id="btn-reset" value="悔一步棋" />
+    </div>
+
+    <script type="text/javascript" src="scripts/tipsStr.js"></script>
+    <script type="text/javascript" src="scripts/common.js"></script>
+    <script type="text/javascript" src="scripts/script-dom.js"></script>
+</body>
+</html>
