@@ -59,7 +59,7 @@ var chessGame = {
                 _this.resultTips.innerHTML = tipGameOver;
                 return false;
             }
-            //计算位置
+            //计算位置, PS：后续学习发现 可以用e.offsetX, e.offsetY，减少计算
             var drawPopsition = _this.calculatePopsition(e.clientX, e.clientY);
             var currentX = drawPopsition.x, currentY = drawPopsition.y;
 
@@ -141,8 +141,8 @@ var chessGame = {
         var scrollTop = document.body.scrollTop;
         	x = (eventX - this.offsetWidth) / this.step,
             y = (eventY - 50 + scrollTop) / this.step,
-            xr = ((eventX - this.offsetWidth) % this.step),
-            yr = ((eventY - 50 + scrollTop) % this.step),
+            xr = (eventX - this.offsetWidth) % this.step,
+            yr = (eventY - 50 + scrollTop) % this.step,
             stepHalf = this.step / 2;
 
         x = parseInt(x);
