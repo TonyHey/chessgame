@@ -20,7 +20,7 @@ var chessGame = {
     //初始化
     init: function() {
         var _this = this;
-        var totalNodes = Math.pow(_this.sideLength, 2);
+        _this.totalNodes = Math.pow(_this.sideLength, 2); //可下棋子总数
         _this.chessArr = commonMethod.initArr(_this.sideLength);
         _this.canvasObj = _this.canvasDom.getContext("2d");
         _this.canvasTipObj = _this.canvasTipDom.getContext("2d");
@@ -36,7 +36,6 @@ var chessGame = {
         _this.canvasChessDom.addEventListener("mousemove", function(e){
             // 先判断游戏是否结束
             if (_this.isWin) {
-                _this.resultTips.innerHTML = tipGameOver;
                 return false;
             }
             //计算位置
@@ -72,7 +71,7 @@ var chessGame = {
             //画棋子
             _this.drawChess(currentX, currentY, _this.chessFlag);
             //判断输赢与否
-            var resultArr = commonMethod.judge(_this.chessFlag, currentX, currentY, _this, 13);
+            var resultArr = commonMethod.judge(_this.chessFlag, currentX, currentY, _this);
             commonMethod.outputResult(_this, _this.chessFlag, resultArr);
 
             if (!_this.isWin) {
@@ -91,8 +90,11 @@ var chessGame = {
                     _this.resultTips.innerHTML = tipBlackTurn;
                 }
             }
-            if (_this.chessPathArr.length === totalNodes) {
+
+            //判断和棋
+            if (_this.chessPathArr.length === _this.totalNodes) {
                 _this.resultTips.innerHTML = tipChessDraw;
+                _this.isWin = true;
             }
         });
         //重新开始
@@ -136,10 +138,11 @@ var chessGame = {
         //判断棋子显示的地方，
         //canvas 对象单击事件的clientWidth&clientHeight和body一致，
         //所以减去水平居中偏移量 _this.offsetWidth & 上边距偏移量30(margin) + 20(padding) = 50
-        var x = (eventX - this.offsetWidth) / this.step,
-            y = (eventY - 50) / this.step,
+        var scrollTop = document.body.scrollTop;
+        	x = (eventX - this.offsetWidth) / this.step,
+            y = (eventY - 50 + scrollTop) / this.step,
             xr = ((eventX - this.offsetWidth) % this.step),
-            yr = ((eventY - 50) % this.step),
+            yr = ((eventY - 50 + scrollTop) % this.step),
             stepHalf = this.step / 2;
 
         x = parseInt(x);

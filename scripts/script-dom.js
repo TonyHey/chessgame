@@ -12,10 +12,10 @@ var chessGame = {
 
     //初始化
     init: function() {
-        var _this = this;
-        var currentX,currentY;
-        var totalNodes = Math.pow(_this.sideLength, 2);
-        var chessNodes = _this.chessBoard.children; //棋子位置节点
+        var _this = this,
+            currentX,currentY,
+            chessNodes = _this.chessBoard.children; //棋子位置节点
+        _this.totalNodes = Math.pow(_this.sideLength, 2);//可下棋子总数
         _this.goToDom.innerHTML = tipGoToCanvas;
         _this.resultTips.innerHTML = tipGameStart;
         _this.chessArr = commonMethod.initArr(_this.sideLength);
@@ -67,8 +67,8 @@ var chessGame = {
                         _this.resultTips.innerHTML = tipBlackTurn;
                     }
                 }
-
-                if (_this.chessPathArr.length === totalNodes) {
+                //判断和棋
+                if (_this.chessPathArr.length === _this.totalNodes) {
                     _this.resultTips.innerHTML = tipChessDraw;
                 }
             }

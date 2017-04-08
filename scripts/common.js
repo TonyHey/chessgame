@@ -11,11 +11,12 @@ var commonMethod = {
         return arr;
     },
     //判断输赢
-    judge: function(flag, x, y, _this, arrLength) {
+    judge: function(flag, x, y, _this) {
         var n1 = 0,//左右
             n2 = 0,//上下
             n3 = 0,//左上到右下方
             n4 = 0, // 右上到左下
+            arrLength = _this.sideLength,
             result;
         //从落子的位置向八个方向寻找，相同颜色的棋子n*自加，如果不是相同颜色的棋子或没棋子，就跳出循环
         //往左
@@ -82,9 +83,9 @@ var commonMethod = {
         //如果有输赢则输出
         var str;
         if (argArr[0] > 4 || argArr[1] > 4 || argArr[2] > 4 || argArr[3] > 4) {
-            if (flag === 1) { //白棋
+            if (flag === 1) { //黑棋赢
                 str = tipBlackWin;
-            } else if (flag === 2) { //黑棋
+            } else if (flag === 2) { //白棋赢
                 str = tipWhiteWin;
             }
             _this.resultTips.innerHTML = str;
