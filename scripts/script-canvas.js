@@ -42,7 +42,7 @@ var chessGame = {
             var drawPopsition = _this.calculatePopsition(e.clientX, e.clientY);
             var x = drawPopsition.x, y = drawPopsition.y;
 
-            if (x < 0 || x > 11 || y < 0 || y > 11 //如果超出棋盘或者在棋盘边界直接返回，边界上不能画棋子（只显示一半，没解决）
+            if (x < 0 || x > 11 || y < 0 || y > 11 //如果超出棋盘或者在棋盘边界直接返回
                 || _this.chessArr[x][y] !== 0) {//进行判断该位置是否已经显示过棋子
                 return false;
             }
@@ -63,7 +63,7 @@ var chessGame = {
             var drawPopsition = _this.calculatePopsition(e.clientX, e.clientY);
             var currentX = drawPopsition.x, currentY = drawPopsition.y;
 
-            if (currentX < 0 || currentX > 11 || currentX < 0 || currentY > 11 //如果超出棋盘或者在棋盘边界直接返回，边界上不能画棋子（只显示一半，没解决）
+            if (currentX < 0 || currentX > 11 || currentX < 0 || currentY > 11 //如果超出棋盘或者在棋盘边界直接返回
                 || _this.chessArr[currentX][currentY] !== 0) {//进行判断该位置是否已经显示过棋子
                 _this.resultTips.innerHTML = tipNoHere;
                 return false;
