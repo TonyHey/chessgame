@@ -4,7 +4,7 @@ var chessGame = {
     step: 40, //设置每个格子的宽高都是40
     chessArr: [], //棋盘数组，0代表没有走过，1为黑棋走过，2为白棋走过
     chessPathArr: [], //记录棋路
-    sideLength: 14, //棋盘边长格子数
+    sideLength: 12, //棋盘边长格子数
     resultTips: document.getElementById("result_tips"),
     btnStart: document.getElementById("btn-start"),
     btnReset: document.getElementById("btn-reset"),
@@ -42,7 +42,7 @@ var chessGame = {
             var drawPopsition = _this.calculatePopsition(e.clientX, e.clientY);
             var x = drawPopsition.x, y = drawPopsition.y;
 
-            if (x < 0 || x >= _this.sideLength || y < 0 || y >= _this.sideLength //如果超出棋盘直接返回
+            if (x < 0 || x > 11 || y < 0 || y > 11 //如果超出棋盘或者在棋盘边界直接返回，边界上不能画棋子（只显示一半，没解决）
                 || _this.chessArr[x][y] !== 0) {//进行判断该位置是否已经显示过棋子
                 return false;
             }
@@ -63,7 +63,7 @@ var chessGame = {
             var drawPopsition = _this.calculatePopsition(e.clientX, e.clientY);
             var currentX = drawPopsition.x, currentY = drawPopsition.y;
 
-            if (currentX < 0 || currentX >= _this.sideLength || currentY < 0 || currentY >= _this.sideLength //如果超出棋盘直接返回
+            if (currentX < 0 || currentX > 11 || currentX < 0 || currentY > 11 //如果超出棋盘或者在棋盘边界直接返回，边界上不能画棋子（只显示一半，没解决）
                 || _this.chessArr[currentX][currentY] !== 0) {//进行判断该位置是否已经显示过棋子
                 _this.resultTips.innerHTML = tipNoHere;
                 return false;
@@ -114,8 +114,8 @@ var chessGame = {
             if (_this.chessPathArr.length !== 0 && !_this.isWin) {
                 //获取悔棋canvas坐标
                 var lastStepObj = _this.chessPathArr.pop();
-                var clearX = lastStepObj.x * _this.step,
-                    clearY = lastStepObj.y * _this.step - 4;
+                var clearX = lastStepObj.x * _this.step + 25,
+                    clearY = lastStepObj.y * _this.step + 25;
                 //清除悔棋的子
                 _this.canvasChessObj.clearRect(clearX, clearY, 30, 30);
 
@@ -139,8 +139,8 @@ var chessGame = {
         //canvas 对象单击事件的clientWidth&clientHeight和body一致，
         //所以减去水平居中偏移量 _this.offsetWidth & 上边距偏移量30(margin) + 20(padding) = 50
         var scrollTop = document.body.scrollTop;
-        	x = (eventX - this.offsetWidth) / this.step + 1,
-            y = (eventY - 50 + scrollTop) / this.step + 1,
+        	x = (eventX - this.offsetWidth) / this.step,
+            y = (eventY - 50 + scrollTop) / this.step,
             xr = (eventX - this.offsetWidth) % this.step,
             yr = (eventY - 50 + scrollTop) % this.step,
             stepHalf = this.step / 2;
@@ -174,12 +174,11 @@ var chessGame = {
     },
     //画棋子
     drawChess: function(x, y, chessFlag) {
-        console.log(x,y)
-        //根据x和y确定图片显示位置,让图片显示在十字线中间
-        var drawX = x * this.step,
-            drawY = y * this.step - 4;
+        //根据x和y确定图片显示位置,让图片显示在十字线中间，因为格子大小为40，棋子大小为30，所以需要往右下移动40-30/2
+        var drawX = x * this.step + 25,
+            drawY = y * this.step + 25;
         //先清除提示框，再绘制新提示，黑子或白子
-        this.canvasTipObj.clearRect(0, 0, 550, 550);
+        this.canvasTipObj.clearRect(0, 0, 520, 520);
         if (chessFlag === 1) {
             //绘制白棋
             this.canvasChessObj.drawImage(this.chessBlack, drawX, drawY);
