@@ -70,24 +70,26 @@ var chessGame = {
             }
             //画棋子
             _this.drawChess(currentX, currentY, _this.chessFlag);
-            //设置当前执子方及提示信息
-            if (_this.chessFlag === 1) {
-                _this.chessFlag = 2; //将标志置为2,白棋执子
-                _this.resultTips.innerHTML = tipWhiteTurn;
-            } else {
-                _this.chessFlag = 1; //将标志置为1,黑棋执子
-                _this.resultTips.innerHTML = tipBlackTurn;
-            }
             //判断输赢与否
             var resultArr = commonMethod.judge(_this.chessFlag, currentX, currentY, _this);
             commonMethod.outputResult(_this, _this.chessFlag, resultArr);
 
-            //更新棋路记录
-            _this.chessPathArr.push({
-                flag: _this.chessFlag,
-                x: currentX,
-                y: currentY
-            });
+            if (!_this.isWin) {
+                //记录当前棋步
+                _this.chessPathArr.push({
+                    flag: _this.chessFlag,
+                    x: currentX,
+                    y: currentY
+                });
+                //设置当前执子方及提示信息
+                if (_this.chessFlag === 1) {
+                    _this.chessFlag = 2; //将标志置为2,白棋执子
+                    _this.resultTips.innerHTML = tipWhiteTurn;
+                } else {
+                    _this.chessFlag = 1; //将标志置为1,黑棋执子
+                    _this.resultTips.innerHTML = tipBlackTurn;
+                }
+            }
 
             //判断和棋
             if (_this.chessPathArr.length === _this.totalNodes) {
