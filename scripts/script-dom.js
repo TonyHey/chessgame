@@ -70,6 +70,7 @@ var chessGame = {
                 //判断和棋
                 if (_this.chessPathArr.length === _this.totalNodes) {
                     _this.resultTips.innerHTML = tipChessDraw;
+                    _this.isWin = true;
                 }
             }
         });
