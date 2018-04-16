@@ -38,6 +38,18 @@ var chessGame = {
                     _this.resultTips.innerHTML = tipNoHere;
                     return false;
                 }
+                // 判断是显示黑子还是白子
+                if (_this.chessFlag === 1) {
+                    //画白子
+                    e.target.setAttribute("style", "background:url(imgs/black.png) no-repeat 4px 4px;");
+                    _this.chessFlag = 2; //将标志置为2,白棋执子
+                    _this.resultTips.innerHTML = tipWhiteTurn;
+                } else {
+                    //画黑子
+                    e.target.setAttribute("style", "background:url(imgs/white.png) no-repeat 4px 4px;");
+                    _this.chessFlag = 1; //将标志置为1,黑棋执子
+                    _this.resultTips.innerHTML = tipBlackTurn;
+                }
                 //更新棋盘状态
                 _this.chessArr[currentX][currentY] = _this.chessFlag;
                 //判断结果
@@ -50,26 +62,10 @@ var chessGame = {
                     x: currentX,
                     y: currentY
                 });
-
-                // 判断是显示黑子还是白子
-                if (_this.chessFlag === 1) {
-                    //画白子
-                    e.target.setAttribute("style", "background:url(imgs/black.png) no-repeat 4px 4px;");
-                    if (!_this.isWin) {
-                        _this.chessFlag = 2; //将标志置为2,白棋执子
-                        _this.resultTips.innerHTML = tipWhiteTurn;
-                    }
-                } else {
-                    //画黑子
-                    e.target.setAttribute("style", "background:url(imgs/white.png) no-repeat 4px 4px;");
-                    if (!_this.isWin) {
-                        _this.chessFlag = 1; //将标志置为1,黑棋执子
-                        _this.resultTips.innerHTML = tipBlackTurn;
-                    }
-                }
                 //判断和棋
                 if (_this.chessPathArr.length === _this.totalNodes) {
                     _this.resultTips.innerHTML = tipChessDraw;
+                    _this.isWin = true;
                 }
             }
         });
